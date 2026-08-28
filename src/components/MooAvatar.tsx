@@ -105,7 +105,7 @@ export default function MooAvatar() {
         aria-label="Click to hear Maude moo"
       >
         <img
-          src="/maude.png"
+          src={import.meta.env.BASE_URL + '/maude.png'}
           alt="Maude the cow"
           className="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-[var(--accent)]/30 shadow-2xl"
         />

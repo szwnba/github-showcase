@@ -106,10 +106,10 @@ const title = 'szwnba 的采集系统 - Home'
           >GitHub</a
         >
         <span class="text-[var(--text-muted)]" data-i18n="home.orCheckOut">或者看看我的</span>
-        <a href="/blog" class="text-[var(--accent)] hover:underline font-medium" data-i18n="home.blog">知识库</a>
+        <a href={import.meta.env.BASE_URL + '/blog'} class="text-[var(--accent)] hover:underline font-medium" data-i18n="home.blog">知识库</a>
         <span class="text-[var(--text-muted)]">&</span>
         <a
-          href="/projects"
+          href={import.meta.env.BASE_URL + '/projects'}
           class="text-[var(--accent)] hover:underline font-medium"
           data-i18n="home.projects"
           >技能列表</a

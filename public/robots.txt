@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://szwnba.github.io/sitemap-index.xml
+Sitemap: https://szwnba.github.io/github-showcase/sitemap-index.xml

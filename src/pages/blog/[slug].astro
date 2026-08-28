@@ -25,7 +25,7 @@ const ogImage = post.data.ogImage ?? `/blog/${post.slug}-og.jpg`
   ogImage={ogImage}
 >
   <div class="max-w-3xl mx-auto px-6 py-12">
-    <a href="/blog" class="text-[var(--accent)] hover:underline mb-8 inline-block" data-i18n="blog.backToBlog">
+    <a href={import.meta.env.BASE_URL + '/blog'} class="text-[var(--accent)] hover:underline mb-8 inline-block" data-i18n="blog.backToBlog">
       ← 返回知识库
     </a>
 
@@ -50,7 +50,7 @@ const ogImage = post.data.ogImage ?? `/blog/${post.slug}-og.jpg`
     </article>
 
     <div class="mt-12 pt-8 border-t border-[var(--border)]">
-      <a href="/blog" class="text-[var(--accent)] hover:underline" data-i18n="blog.backToAll">
+      <a href={import.meta.env.BASE_URL + '/blog'} class="text-[var(--accent)] hover:underline" data-i18n="blog.backToAll">
         ← 返回全部
       </a>
     </div>

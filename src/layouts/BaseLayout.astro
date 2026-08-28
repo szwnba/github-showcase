@@ -14,7 +14,7 @@ interface Props {
 const {
   title,
   description,
-  ogImage = '/og-image.jpg',
+  ogImage = import.meta.env.BASE_URL + '/og-image.jpg',
   pageLang = DEFAULT_LANG,
 } = Astro.props
 
@@ -60,7 +60,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: pageLang === 'zh' ? 'szwnba 的采集系统' : "szwnba's Collector System",
-      url: Astro.site?.toString() || 'https://szwnba.github.io',
+      url: new URL(import.meta.env.BASE_URL || '/', Astro.site).toString(),
       description: description ?? defaultDesc,
     })} />
   </head>
@@ -69,7 +69,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
       <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-[var(--bg)]/90 border-b border-[var(--border)]">
         <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
           <a
-            href="/"
+            href={import.meta.env.BASE_URL + '/'}
             class="flex items-center gap-2 text-xl font-semibold hover:text-[var(--accent)] transition-colors"
           >
             <span class="text-2xl">⚡</span>
@@ -78,11 +78,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
           <!-- Desktop nav links -->
           <div class="hidden md:flex items-center gap-6 text-sm sm:text-base">
-            <a href="/about" class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors link-underline" data-i18n="nav.about">{t('nav.about', pageLang)}</a>
-            <a href="/projects" class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors link-underline" data-i18n="nav.projects">{t('nav.projects', pageLang)}</a>
-            <a href="/blog" class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors link-underline" data-i18n="nav.blog">{t('nav.blog', pageLang)}</a>
-            <a href="/report" class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors link-underline" data-i18n="nav.report">{t('nav.report', pageLang)}</a>
-            <a href="/todoist" class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors link-underline" data-i18n="nav.todoist">{t('nav.todoist', pageLang)}</a>
+            <a href={import.meta.env.BASE_URL + '/about'} class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors link-underline" data-i18n="nav.about">{t('nav.about', pageLang)}</a>
+            <a href={import.meta.env.BASE_URL + '/projects'} class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors link-underline" data-i18n="nav.projects">{t('nav.projects', pageLang)}</a>
+            <a href={import.meta.env.BASE_URL + '/blog'} class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors link-underline" data-i18n="nav.blog">{t('nav.blog', pageLang)}</a>
+            <a href={import.meta.env.BASE_URL + '/report'} class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors link-underline" data-i18n="nav.report">{t('nav.report', pageLang)}</a>
+            <a href={import.meta.env.BASE_URL + '/todoist'} class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors link-underline" data-i18n="nav.todoist">{t('nav.todoist', pageLang)}</a>
           </div>
 
           <!-- Shared controls (visible on all sizes) -->
@@ -108,11 +108,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
         <!-- Mobile menu drawer -->
         <div id="mobile-menu" class="md:hidden hidden border-t border-[var(--border)] bg-[var(--bg)]/95 backdrop-blur-md">
           <div class="max-w-4xl mx-auto px-6 py-4 flex flex-col gap-4 text-base">
-            <a href="/about" class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors py-2" data-i18n="nav.about">{t('nav.about', pageLang)}</a>
-            <a href="/projects" class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors py-2" data-i18n="nav.projects">{t('nav.projects', pageLang)}</a>
-            <a href="/blog" class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors py-2" data-i18n="nav.blog">{t('nav.blog', pageLang)}</a>
-            <a href="/report" class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors py-2" data-i18n="nav.report">{t('nav.report', pageLang)}</a>
-            <a href="/todoist" class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors py-2" data-i18n="nav.todoist">{t('nav.todoist', pageLang)}</a>
+            <a href={import.meta.env.BASE_URL + '/about'} class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors py-2" data-i18n="nav.about">{t('nav.about', pageLang)}</a>
+            <a href={import.meta.env.BASE_URL + '/projects'} class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors py-2" data-i18n="nav.projects">{t('nav.projects', pageLang)}</a>
+            <a href={import.meta.env.BASE_URL + '/blog'} class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors py-2" data-i18n="nav.blog">{t('nav.blog', pageLang)}</a>
+            <a href={import.meta.env.BASE_URL + '/report'} class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors py-2" data-i18n="nav.report">{t('nav.report', pageLang)}</a>
+            <a href={import.meta.env.BASE_URL + '/todoist'} class="text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors py-2" data-i18n="nav.todoist">{t('nav.todoist', pageLang)}</a>
           </div>
         </div>
       </nav>
@@ -143,7 +143,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
             <span data-i18n="footer.rightsReserved">
               © {new Date().getFullYear()} szwnba.github.io
             </span>
-            <a href="/rss.xml" class="text-[var(--accent)] hover:underline">RSS</a>
+            <a href={import.meta.env.BASE_URL + '/rss.xml'} class="text-[var(--accent)] hover:underline">RSS</a>
           </p>
         </div>
       </footer>
